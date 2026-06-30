@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sanjay Vairavel | Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Sanjay V | AI Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -13,69 +18,428 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Poppins,sans-serif;
+font-family:'Poppins',sans-serif;
+}
+
+html{
 scroll-behavior:smooth;
 }
 
 body{
 
-background:linear-gradient(-45deg,#0f172a,#1d4ed8,#2563eb,#0ea5e9);
-background-size:400% 400%;
-animation:bg 12s infinite;
+background:#070707;
+color:white;
+overflow-x:hidden;
+
+}
+
+/* Background */
+
+body::before{
+
+content:'';
+
+position:fixed;
+
+width:100%;
+height:100%;
+
+background:
+
+radial-gradient(circle at top,#143cff55,transparent 45%),
+
+radial-gradient(circle at bottom,#00ffe433,transparent 35%),
+
+#070707;
+
+z-index:-5;
+
+}
+
+/* Cursor */
+
+.cursor{
+
+width:18px;
+height:18px;
+
+border-radius:50%;
+
+position:fixed;
+
+background:#4dd6ff;
+
+pointer-events:none;
+
+mix-blend-mode:screen;
+
+filter:blur(2px);
+
+transition:.05s;
+
+z-index:9999;
+
+}
+
+/* Navbar */
+
+nav{
+
+position:fixed;
+
+top:0;
+
+width:100%;
+
+padding:25px 8%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+backdrop-filter:blur(20px);
+
+background:rgba(0,0,0,.25);
+
+z-index:100;
+
+}
+
+.logo{
+
+font-size:28px;
+
+font-weight:700;
+
+letter-spacing:2px;
+
+}
+
+nav ul{
+
+display:flex;
+
+gap:45px;
+
+list-style:none;
+
+}
+
+nav a{
+
+text-decoration:none;
+
+color:white;
+
+font-weight:500;
+
+transition:.4s;
+
+}
+
+nav a:hover{
+
+color:#45d7ff;
+
+}
+
+/* Hero */
+
+.hero{
+
+height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 8%;
+
+}
+
+.left{
+
+width:52%;
+
+animation:fadeUp 1.4s;
+
+}
+
+.small{
+
+color:#5ec9ff;
+
+font-size:18px;
+
+letter-spacing:3px;
+
+}
+
+h1{
+
+font-size:78px;
+
+line-height:88px;
+
+margin-top:15px;
+
+}
+
+.gradient{
+
+background:linear-gradient(90deg,#00d9ff,#00ffb7);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+.desc{
+
+margin-top:35px;
+
+font-size:20px;
+
+line-height:35px;
+
+color:#b8b8b8;
+
+max-width:650px;
+
+}
+
+.buttons{
+
+margin-top:45px;
+
+display:flex;
+
+gap:25px;
+
+}
+
+.btn{
+
+padding:16px 34px;
+
+border-radius:40px;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.4s;
+
+}
+
+.primary{
+
+background:#22d5ff;
+
+color:black;
+
+}
+
+.secondary{
+
+border:1px solid white;
+
 color:white;
 
 }
 
-@keyframes bg{
+.primary:hover{
 
-0%{background-position:0 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0 50%;}
+transform:translateY(-5px);
+
+box-shadow:0 15px 45px #00bfff77;
 
 }
 
-header{
+.secondary:hover{
 
-height:100vh;
+background:white;
+
+color:black;
+
+}
+
+/* Right */
+
+.right{
+
+width:45%;
+
 display:flex;
+
 justify-content:center;
-align-items:center;
-text-align:center;
-padding:30px;
+
+position:relative;
 
 }
 
-.hero{
+.circle{
 
-background:rgba(255,255,255,.08);
-padding:50px;
-border-radius:20px;
-backdrop-filter:blur(15px);
-max-width:900px;
-box-shadow:0 20px 50px rgba(0,0,0,.3);
+width:520px;
 
-}
+height:520px;
 
-.avatar{
-
-width:150px;
-height:150px;
-background:#2563eb;
 border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:60px;
-font-weight:bold;
-margin:auto;
-margin-bottom:20px;
-animation:float 3s infinite;
+
+background:
+
+radial-gradient(circle,#22d7ff44,#0000);
+
+animation:rotate 20s linear infinite;
+
+position:absolute;
+
+}
+
+.robot{
+
+width:420px;
+
+position:relative;
+
+z-index:3;
+
+animation:float 5s ease-in-out infinite;
+
+filter:drop-shadow(0 20px 50px #00bfff66);
+
+}
+
+/* Scroll */
+
+.scroll{
+
+position:absolute;
+
+bottom:40px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:14px;
+
+letter-spacing:3px;
+
+opacity:.7;
+
+animation:bounce 2s infinite;
+
+}
+
+/* Floating dots */
+
+.particle{
+
+position:absolute;
+
+border-radius:50%;
+
+background:#00d5ff;
+
+animation:particle linear infinite;
+
+opacity:.4;
+
+}
+
+@keyframes particle{
+
+0%{
+
+transform:translateY(100vh);
+
+}
+
+100%{
+
+transform:translateY(-120px);
+
+}
 
 }
 
 @keyframes float{
 
-50%{transform:translateY(-10px);}
+50%{
+
+transform:translateY(-25px);
+
+}
+
+}
+
+@keyframes rotate{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(60px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+@keyframes bounce{
+
+50%{
+
+transform:translate(-50%,10px);
+
+}
+
+}
+
+@media(max-width:900px){
+
+.hero{
+
+flex-direction:column;
+
+justify-content:center;
+
+text-align:center;
+
+}
+
+.left,.right{
+
+width:100%;
+
+}
+
+.right{
+
+margin-top:50px;
 
 }
 
@@ -83,362 +447,139 @@ h1{
 
 font-size:48px;
 
-}
-
-.typing{
-
-font-size:24px;
-color:#7dd3fc;
-margin:20px 0;
+line-height:60px;
 
 }
 
-p{
+.robot{
 
-line-height:1.8;
-color:#ddd;
-
-}
-
-.btn{
-
-display:inline-block;
-margin-top:25px;
-padding:15px 35px;
-background:#0077B5;
-color:white;
-text-decoration:none;
-border-radius:40px;
-transition:.3s;
+width:280px;
 
 }
 
-.btn:hover{
+.circle{
 
-transform:scale(1.08);
-
-}
-
-section{
-
-padding:80px 10%;
+width:330px;
+height:330px;
 
 }
 
-.section-title{
+.buttons{
 
-font-size:38px;
-margin-bottom:40px;
-text-align:center;
-
-}
-
-.grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-
-}
-
-.card{
-
-background:rgba(255,255,255,.08);
-padding:25px;
-border-radius:15px;
-backdrop-filter:blur(12px);
-transition:.4s;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-}
-
-.skill{
-
-margin:15px 0;
-
-}
-
-.bar{
-
-height:10px;
-background:#ffffff33;
-border-radius:20px;
-overflow:hidden;
-
-}
-
-.fill{
-
-height:100%;
-background:#38bdf8;
-
-}
-
-.stats{
-
-display:flex;
 justify-content:center;
-gap:50px;
-flex-wrap:wrap;
 
 }
-
-.stat{
-
-text-align:center;
-
-}
-
-.stat h2{
-
-font-size:48px;
-
-}
-
-footer{
-
-padding:40px;
-text-align:center;
-background:#00000055;
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<header>
+<div class="cursor"></div>
 
-<div class="hero">
+<nav>
 
-<div class="avatar">SV</div>
+<div class="logo">SANJAY</div>
 
-<h1>Sanjay Vairavel</h1>
+<ul>
 
-<div class="typing" id="typing"></div>
+<li><a href="#">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Projects</a></li>
+<li><a href="#">Experience</a></li>
+<li><a href="#">Contact</a></li>
 
-<p>
+</ul>
 
-Business Development Executive passionate about Artificial Intelligence,
-Digital Transformation, Enterprise Solutions, SaaS Platforms,
-Data Analytics, ERP Systems, and Technology Consulting.
+</nav>
+
+<section class="hero">
+
+<div class="left">
+
+<div class="small">
+WELCOME TO MY PORTFOLIO
+</div>
+
+<h1>
+
+Building the Future<br>
+
+with
+
+<span class="gradient">AI & Innovation</span>
+
+</h1>
+
+<p class="desc">
+
+I'm Sanjay V, an AI enthusiast and developer passionate about building intelligent applications, immersive web experiences, enterprise solutions, and modern digital products. I combine AI, design, and engineering to create impactful experiences.
 
 </p>
 
-<a class="btn"
-href="YOUR_LINKEDIN_URL"
-target="_blank">
-Connect on LinkedIn
-</a>
+<div class="buttons">
 
-</div>
+<a href="#" class="btn primary">Explore Work</a>
 
-</header>
-
-<section>
-
-<h2 class="section-title">About Me</h2>
-
-<div class="card">
-
-<p>
-
-I enjoy helping businesses adopt modern technology solutions that improve
-efficiency, productivity, and customer experience. My interests include
-AI-powered applications, ERP implementation, cloud technologies, digital
-government initiatives, and business strategy.
-
-</p>
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="section-title">Skills</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<div class="skill">
-
-Business Development
-
-<div class="bar"><div class="fill" style="width:95%"></div></div>
-
-</div>
-
-<div class="skill">
-
-Sales Strategy
-
-<div class="bar"><div class="fill" style="width:90%"></div></div>
-
-</div>
-
-<div class="skill">
-
-AI & Data Analytics
-
-<div class="bar"><div class="fill" style="width:88%"></div></div>
-
-</div>
-
-<div class="skill">
-
-Digital Transformation
-
-<div class="bar"><div class="fill" style="width:92%"></div></div>
+<a href="#" class="btn secondary">Download Resume</a>
 
 </div>
 
 </div>
+
+<div class="right">
+
+<div class="circle"></div>
+
+<!-- Replace with your robot image -->
+<img src="images/robot.png" class="robot">
+
+</div>
+
+<div class="scroll">
+
+SCROLL
+
+↓
 
 </div>
 
 </section>
-
-<section>
-
-<h2 class="section-title">Services</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Business Development</h3>
-<p>Helping organizations identify new opportunities and drive sustainable growth.</p>
-</div>
-
-<div class="card">
-<h3>AI Solutions</h3>
-<p>Exploring AI-driven products and automation to improve business efficiency.</p>
-</div>
-
-<div class="card">
-<h3>ERP Consulting</h3>
-<p>Supporting ERP adoption, process optimization, and digital transformation initiatives.</p>
-</div>
-
-<div class="card">
-<h3>Technology Consulting</h3>
-<p>Providing insights into cloud platforms, analytics, and enterprise software.</p>
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="section-title">Projects</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>AI Business Solutions</h3>
-<p>Worked on initiatives focused on AI adoption and business process automation.</p>
-</div>
-
-<div class="card">
-<h3>Data Analytics</h3>
-<p>Contributed to projects involving dashboards, reporting, and business insights.</p>
-</div>
-
-<div class="card">
-<h3>ERP Systems</h3>
-<p>Supported digital transformation projects using enterprise resource planning solutions.</p>
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="section-title">Achievements</h2>
-
-<div class="stats">
-
-<div class="stat">
-<h2>20+</h2>
-<p>Business Meetings</p>
-</div>
-
-<div class="stat">
-<h2>10+</h2>
-<p>Technology Solutions Explored</p>
-</div>
-
-<div class="stat">
-<h2>100%</h2>
-<p>Commitment to Learning</p>
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="section-title">Contact</h2>
-
-<div class="card" style="text-align:center">
-
-<h3>Sanjay Vairavel</h3>
-
-<p>
-
-Interested in collaborating on technology, AI, analytics, or business development opportunities?
-
-</p>
-
-<br>
-
-<a class="btn"
-href="YOUR_LINKEDIN_URL"
-target="_blank">
-Let's Connect
-</a>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>© 2026 Sanjay Vairavel | Built with HTML & CSS</p>
-
-</footer>
 
 <script>
 
-const txt="Business Development Executive | AI Enthusiast | Technology Consultant";
+const cursor=document.querySelector(".cursor");
 
-let i=0;
+document.addEventListener("mousemove",(e)=>{
 
-function type(){
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
 
-if(i<txt.length){
+});
 
-document.getElementById("typing").innerHTML+=txt.charAt(i);
+for(let i=0;i<45;i++){
 
-i++;
+const p=document.createElement("div");
 
-setTimeout(type,60);
+p.className="particle";
+
+let size=Math.random()*6+2;
+
+p.style.width=size+"px";
+p.style.height=size+"px";
+
+p.style.left=Math.random()*100+"vw";
+
+p.style.animationDuration=(Math.random()*10+10)+"s";
+
+p.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(p);
 
 }
-
-}
-
-type();
 
 </script>
 
